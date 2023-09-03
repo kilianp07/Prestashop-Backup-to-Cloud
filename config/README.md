@@ -5,7 +5,7 @@
 # config
 
 ```go
-import "github.com/kilianp07/Prestashop-Backup-to-Google-Drive/config"
+import "github.com/kilianp07/Prestashop-Backup-to-Cloud/config"
 ```
 
 ## Index

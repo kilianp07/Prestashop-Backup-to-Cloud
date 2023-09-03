@@ -5,7 +5,7 @@
 # Prestashop\-Backup\-to\-Google\-Drive
 
 ```go
-import "github.com/kilianp07/Prestashop-Backup-to-Google-Drive"
+import "github.com/kilianp07/Prestashop-Backup-to-Cloud"
 ```
 
 ## Index

@@ -1,5 +1,5 @@
 FROM golang:1.20
-LABEL org.opencontainers.image.source="https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive"
+LABEL org.opencontainers.image.source="https://github.com/kilianp07/Prestashop-Backup-to-Cloud"
 WORKDIR /go/src/app
 
 COPY . .

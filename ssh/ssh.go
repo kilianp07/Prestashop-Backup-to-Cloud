@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kilianp07/Prestashop-Backup-to-Google-Drive/config"
+	"github.com/kilianp07/Prestashop-Backup-to-Cloud/config"
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/crypto/ssh/knownhosts"
 )

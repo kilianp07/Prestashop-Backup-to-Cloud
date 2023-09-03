@@ -1,4 +1,4 @@
-module github.com/kilianp07/Prestashop-Backup-to-Google-Drive
+module github.com/kilianp07/Prestashop-Backup-to-Cloud
 
 go 1.20
 

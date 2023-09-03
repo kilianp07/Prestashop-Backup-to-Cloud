@@ -23,3 +23,5 @@ go.work
 .vscode
 config.json
 build/
+
+.DS_Store
