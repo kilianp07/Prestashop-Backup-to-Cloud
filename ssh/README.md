@@ -5,7 +5,7 @@
 # sshClient
 
 ```go
-import "github.com/kilianp07/Prestashop-Backup-to-Google-Drive/ssh"
+import "github.com/kilianp07/Prestashop-Backup-to-Cloud/ssh"
 ```
 
 ## Index

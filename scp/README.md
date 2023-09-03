@@ -5,7 +5,7 @@
 # scpClient
 
 ```go
-import "github.com/kilianp07/Prestashop-Backup-to-Google-Drive/scp"
+import "github.com/kilianp07/Prestashop-Backup-to-Cloud/scp"
 ```
 
 ## Index

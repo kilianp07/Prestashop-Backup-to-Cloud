@@ -9,8 +9,8 @@ import (
 	"time"
 
 	scp "github.com/bramvdbogaerde/go-scp"
-	"github.com/kilianp07/Prestashop-Backup-to-Google-Drive/config"
-	sshClientLib "github.com/kilianp07/Prestashop-Backup-to-Google-Drive/ssh"
+	"github.com/kilianp07/Prestashop-Backup-to-Cloud/config"
+	sshClientLib "github.com/kilianp07/Prestashop-Backup-to-Cloud/ssh"
 	"golang.org/x/crypto/ssh"
 )
 

@@ -1,6 +1,6 @@
 package main
 
-import scpClient "github.com/kilianp07/Prestashop-Backup-to-Google-Drive/scp"
+import scpClient "github.com/kilianp07/Prestashop-Backup-to-Cloud/scp"
 
 func main() {
 	scpCli, err := scpClient.New()
