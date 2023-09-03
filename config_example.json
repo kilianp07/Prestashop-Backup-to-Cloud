@@ -1,0 +1,12 @@
+{
+    "ssh":{
+        "host": "",
+        "port": 22,
+        "user": "",
+        "password": ""
+    },
+    "folder": {
+        "location": "",
+        "compression": true
+    }
+}
