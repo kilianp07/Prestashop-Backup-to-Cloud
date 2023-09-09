@@ -1,0 +1,10 @@
+---
+version: '3'
+
+services:
+    prestashop-backup:
+        image: ghcr.io/kilianp07/prestashop-backup-to-cloud:v0.1
+        volumes:
+            - ./docker/config:/conf
+            - ./docker/.ssh:/root/.ssh
+        restart: always

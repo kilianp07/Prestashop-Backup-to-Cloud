@@ -15,7 +15,21 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
 
 # Go workspace file
 go.work
+
+.vscode
+config.json
+build/
+
+credentials.json
+ServiceAccountCred.json
+.env
+
+*.tar
+
+.DS_Store
+
+known_hosts
