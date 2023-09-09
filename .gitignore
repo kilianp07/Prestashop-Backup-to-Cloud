@@ -24,4 +24,10 @@ go.work
 config.json
 build/
 
+credentials.json
+ServiceAccountCred.json
+.env
+
+*.tar
+
 .DS_Store

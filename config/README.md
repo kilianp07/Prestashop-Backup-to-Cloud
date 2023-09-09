@@ -13,11 +13,12 @@ import "github.com/kilianp07/Prestashop-Backup-to-Cloud/config"
 - [type Config](<#Config>)
   - [func New\(\) \(\*Config, error\)](<#New>)
   - [func \(c \*Config\) GetSSHConfig\(\) \*SshConf](<#Config.GetSSHConfig>)
+- [type MegaConf](<#MegaConf>)
 - [type SshConf](<#SshConf>)
 
 
 <a name="Config"></a>
-## type [Config](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/config/structs.go#L4-L7>)
+## type [Config](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/config/structs.go#L4-L8>)
 
 Config is the struct that holds ssh and drive config.
 
@@ -25,6 +26,7 @@ Config is the struct that holds ssh and drive config.
 type Config struct {
     SshConfig SshConf    `json:"ssh"`
     Folder    folderConf `json:"folder"`
+    Mega      MegaConf   `json:"mega"`
 }
 ```
 
@@ -46,8 +48,20 @@ func (c *Config) GetSSHConfig() *SshConf
 
 GetSSHConfig returns a ssh.ClientConfig struct.
 
+<a name="MegaConf"></a>
+## type [MegaConf](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/config/structs.go#L24-L27>)
+
+
+
+```go
+type MegaConf struct {
+    Username string `json:"login"`
+    Password string `json:"password"`
+}
+```
+
 <a name="SshConf"></a>
-## type [SshConf](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/config/structs.go#L10-L15>)
+## type [SshConf](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/config/structs.go#L11-L16>)
 
 ssh is the struct that holds ssh config.
 
