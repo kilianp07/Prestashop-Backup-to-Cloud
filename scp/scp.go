@@ -19,16 +19,15 @@ type Client struct {
 	scpClient scp.Client
 	config    *config.Config
 	file      *os.File
+	filePath  string
 }
 
-func New() (*Client, error) {
-	c := &Client{}
-
-	err := c.createConfig()
-	if err != nil {
-		return nil, err
+func New(conf *config.Config) (*Client, error) {
+	c := &Client{
+		config: conf,
 	}
-	err = c.createSshClient()
+
+	err := c.createSshClient()
 	if err != nil {
 		return nil, err
 	}
@@ -123,19 +122,9 @@ func (c *Client) createSshClient() error {
 	return nil
 }
 
-func (c *Client) createConfig() error {
-	// Read Config from file
-	config, err := config.New()
-	if err != nil {
-		return err
-	}
-	c.config = config
-	return nil
-}
-
 func (c *Client) createDestinationFile() (err error) {
-	filename := fmt.Sprintf("backup_%s.tar", time.Now().Format("2006-01-02_15-04-05"))
-	c.file, err = os.Create(filename)
+	c.filePath = fmt.Sprintf("backup_%s.tar", time.Now().Format("2006-01-02_15-04-05"))
+	c.file, err = os.Create(c.filePath)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -160,4 +149,49 @@ func (c *Client) Copy() error {
 	}
 	log.Printf("Copying %s...", filename)
 	return c.scpClient.CopyFromRemote(context.Background(), c.file, filename)
+}
+
+func (c *Client) GetFilePath() string {
+	return c.filePath
+}
+
+func (c *Client) SupressRemoteFile() error {
+	session, err := c.sshClient.NewSession()
+	if err != nil {
+		return err
+	}
+	defer session.Close()
+
+	// configure terminal mode
+	modes := ssh.TerminalModes{
+		ssh.ECHO: 0, // supress echo
+
+	}
+	// run terminal session
+	if err := session.RequestPty("xterm", 50, 80, modes); err != nil {
+		return err
+	}
+
+	// Create a pipe to hold the output
+	stdoutPipe, stdoutWriter := io.Pipe()
+	session.Stdout = stdoutWriter
+
+	commands := []string{
+		fmt.Sprintf("cd %s && rm backup.tar", c.config.Folder.Location),
+	}
+	log.Printf("Deleting compressed file %s...", c.config.Folder.Location)
+	for _, cmd := range commands {
+		if err := session.Start(cmd); err != nil {
+			return err
+		}
+		go func() {
+			_, err := io.Copy(os.Stdout, stdoutPipe)
+			if err != nil {
+				log.Println("Error during output acquisition :", err)
+			}
+		}()
+		_ = session.Wait()
+	}
+	log.Println("Deleting file... Done")
+	return nil
 }

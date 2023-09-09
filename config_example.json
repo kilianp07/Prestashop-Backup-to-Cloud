@@ -8,5 +8,9 @@
     "folder": {
         "location": "",
         "compression": true
+    },
+    "mega": {
+        "login": "",
+        "password": ""
     }
 }

@@ -11,13 +11,15 @@ import "github.com/kilianp07/Prestashop-Backup-to-Cloud/scp"
 ## Index
 
 - [type Client](<#Client>)
-  - [func New\(\) \(\*Client, error\)](<#New>)
+  - [func New\(conf \*config.Config\) \(\*Client, error\)](<#New>)
   - [func \(c \*Client\) Close\(\) error](<#Client.Close>)
   - [func \(c \*Client\) Copy\(\) error](<#Client.Copy>)
+  - [func \(c \*Client\) GetFilePath\(\) string](<#Client.GetFilePath>)
+  - [func \(c \*Client\) SupressRemoteFile\(\) error](<#Client.SupressRemoteFile>)
 
 
 <a name="Client"></a>
-## type [Client](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L17-L22>)
+## type [Client](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L17-L23>)
 
 
 
@@ -28,16 +30,16 @@ type Client struct {
 ```
 
 <a name="New"></a>
-### func [New](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L24>)
+### func [New](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L25>)
 
 ```go
-func New() (*Client, error)
+func New(conf *config.Config) (*Client, error)
 ```
 
 
 
 <a name="Client.Close"></a>
-### func \(\*Client\) [Close](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L150>)
+### func \(\*Client\) [Close](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L139>)
 
 ```go
 func (c *Client) Close() error
@@ -46,10 +48,28 @@ func (c *Client) Close() error
 
 
 <a name="Client.Copy"></a>
-### func \(\*Client\) [Copy](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L154>)
+### func \(\*Client\) [Copy](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L143>)
 
 ```go
 func (c *Client) Copy() error
+```
+
+
+
+<a name="Client.GetFilePath"></a>
+### func \(\*Client\) [GetFilePath](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L154>)
+
+```go
+func (c *Client) GetFilePath() string
+```
+
+
+
+<a name="Client.SupressRemoteFile"></a>
+### func \(\*Client\) [SupressRemoteFile](<https://github.com/kilianp07/Prestashop-Backup-to-Google-Drive/blob/main/scp/scp.go#L158>)
+
+```go
+func (c *Client) SupressRemoteFile() error
 ```
 
 
