@@ -31,3 +31,5 @@ ServiceAccountCred.json
 *.tar
 
 .DS_Store
+
+known_hosts

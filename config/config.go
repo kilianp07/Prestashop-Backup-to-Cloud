@@ -19,7 +19,7 @@ func New() (*Config, error) {
 func readConfig() (*Config, error) {
 	config := &Config{}
 	// open config file
-	file, err := os.Open("config.json")
+	file, err := os.Open("/conf/config.json")
 	if err != nil {
 		return nil, err
 	}

@@ -1,0 +1,9 @@
+---
+version: '3'
+
+services:
+    prestashop-backup:
+        image: ghcr.io/kilianp07/prestashop-backup-to-google-drive:latest
+        volumes:
+            - ./docker/config:/conf
+            - ./docker/.ssh:/root/.ssh

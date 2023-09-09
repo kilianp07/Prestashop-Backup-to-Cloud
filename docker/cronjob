@@ -1,0 +1,2 @@
+0 0 * * * root /bin/prestashop_backup >> /var/log/cron.log 2>&1
+
